@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Ticket Booking</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="css/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<script>
+  window.onload=function(){
+    var sp="-";
+  today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth()+1; //As January is 0.
+  var yyyy = today.getFullYear();
+  
+  if(dd<10) dd='0'+dd;
+  if(mm<10) mm='0'+mm;
+  console.log(yyyy+sp+mm+sp+dd);
+  var d = new Date(+today + 6 *86400000);
+  var dd1 = d.getDate();
+  var mm1 = d.getMonth()+1; //As January is 0.
+  var yyyy1 = d.getFullYear();
+  
+  if(dd1<10) dd1='0'+dd1;
+  if(mm1<10) mm1='0'+mm1;
+  console.log(yyyy1+sp+mm1+sp+dd1);
+  document.getElementById('txtDate').setAttribute('min',yyyy+sp+mm+sp+dd);
+  document.getElementById('txtDate').setAttribute('max',yyyy1+sp+mm1+sp+dd1);
+  };
+document.getElementsByClassName("text").onchange = function() {myFunction()};
+
+function myFunction() {
+  var x = document.getElementsByClassName("text");
+  var t=x.value.slice(0,1);
+  x.value=t.toUpperCase()+x.value.slice(1,);
+ 
+}
+  </script>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
+.bottom-right{
+position:absolute;
+color:#FFFFFF;
+font-size:70px;
+bottom:525px;
+right:40px;
+}
+.bottom-right-1{
+position:absolute;
+color:#FFFFFF;
+font-size:30px;
+bottom:485px;
+right:200px;
+}
+
+html,
+body {
+  min-height: 100%;
+  min-width: 100%;
+}
+
+body {
+  font: 16px 'Roboto', sans-serif;
+  width: 100%;
+  text-align: center;
+  color: #555;
+  background: #ddd;
+}
+
+.form {
+  padding: 35px 0;
+  border: 1px solid #aaa;
+  background: #eee;
+  min-width: 100%;
+  margin: 0 auto;
+  
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  border: 0;
+  outline: 0;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+input[type=text] {
+  width: 80%;
+  padding: 10px 10px 12px 70px;
+  font-size: 12px;
+  color: #555;
+  border: 1px solid #aaa;
+  background-color: #fff;
+}
+
+.field {
+  display: inline-block;
+  position: relative;
+  margin: 10px auto;
+}
+
+.col-centered {
+  float: none;
+}
+
+.field input {
+  transition: .1s all linear;
+  font-size: 20px;
+  font-family: Monospace;
+}
+
+.field label {
+  color: #999;
+  font-size: 14px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 18%;
+  top: 18px;
+}
+
+h1 {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 2em;
+  padding: 10px 10px;
+  text-align: center;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  color: #131313;
+  background-color: #e7e5e4;
+  letter-spacing: .07em;
+  text-shadow: 1px -1px 0 #767676;
+  margin-top: 10px;
+}
+input[type=submit] {
+  background-color: green;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+</style>
+<body>
+
+  <ul> 
+    <li><a class='active'href="#">Home</a></li>
+    <li><a href="mybooking.html">My Bookings</a></li>
+    <li><a href="shift_tickets.php">Shift Tickets</a></li>
+    <li><a href="canceltickets.php">Cancel Tickets</a></li>
+    <li><a href="complaints.php">Complaints</a></li>
+    <li><a href="index.html">Logout</a></li>
+    <li><a href="about.html">About</a></li>
+   
+  </ul>
+<form action="booking_demo.php" method="POST">
+<div class="mySlides w3-display-container w3-center">
+    <img src="img/Sky2.jpg" style="width:1500px;height:650px;">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+<div class="bottom-right">Reservation System</div><br>
+<div class="bottom-right-1"></div><br>
+
+<div class="index container animated zoomIn">
+
+  <div class="form contactform">
+    <div id="page1">
+      <h1>Book Your Train Ticket</h1>
+      <div class="index row">
+
+        <div class="field col-sm-6">
+          <label for="from">From :</label>
+          <input id="from" type="text" name="from"  list="fcities" class="text"/>
+            <datalist id="fcities">
+          <option>Bangalore</option>
+          <option>Mumbai</option>
+          <option>Delhi</option>
+          <option>Hyderabad</option>
+          <option>Kolkata</option>
+          <option>Chennai</option>
+          <option>Hindupur</option>
+          <option>Kurnool</option>
+          <option>Anantapur</option>
+          <option>Guntakal jn</option>
+          <option>Dharmavaram jn</option>
+          <option>Tirupati</option>
+          <option>Nellore</option>
+          <option>Vijayawada jn</option>
+          <option>Rajahmundry</option>
+          <option>Visakhapatnam</option>
+          <option>Wadi</option>
+          <option>Gangapur rd</option>
+          <option>Solapur</option>
+          <option>Pune</option>
+          <option>Madhapur</option>
+          <option>Maddur</option>
+          <option>Jolarpettai</option>
+          <option>Ambur</option>
+          <option>Trivellore</option>
+            <option>Raichur</option>
+            <option>Secundrabad jn</option>
+            <option>Nagpur</option>
+            <option>Jhansi</option>
+            <option>Mehaboob nagar</option>
+            <option>Khurda rd</option>
+            <option>Cuttack</option>
+            <option>Kharagpur jn</option>
+            <option>Nanded</option>
+            <option>Parbhani jn</option>
+            <option>Auramgabad</option>
+            <option>Rajampeta</option>
+            <option>Renigunta jn</option>
+            <option>Balharshah jn</option>
+            <option>Nagpore jn</option>
+            <option>Bhopal jn</option>
+            <option>Jhansi jn</option>
+            <option>Viziahnagaram jn</option>
+            <option>Kiul jn</option>
+            <option>Tatanagar jn</option>
+            <option>Rourkela</option>
+            <option>Bilaspur jn</option>
+            <option>Bhusaval jn</option>
+            <option>Balasore</option>
+            <option>Bhubaneswar</option>
+            <option>Khurda jn</option>
+            <option>Tundla jn</option>
+            <option>Kanpur jn</option>
+            <option>Patna jn</option>
+            <option>Jasindih jn</option>
+            <option>Barddhaman</option>
+            <option>Mariani jn</option>
+            <option>Lumbding jn</option>
+            <option>Guwahati</option>
+            <option>Trivendram cntl</option>
+            <option>Brahmapur</option>
+            <option>Badnera jn</option>
+            <option>Rourkela</option>
+            <option>Bangarapet</option>
+            <option>Katpadi jn</option>
+            <option>Arakkonam </option>
+            <option>Perambur</option>
+            <option>Shoranur jn</option>
+            <option>Manglore jn</option>
+            <option>Madgaan</option>
+            <option>Panvel</option>
+            <option>Nasik rd</option>
+            <option>Chennai cntl</option>
+            <option>Bangalore caut</option>
+            <option>Bangalore jn</option>
+            <option>Gudur jn</option>
+            <option>Khammam</option>
+            <option>Warangal</option>
+            <option>Ranjiya jn</option>
+            <option>Howrah jn</option>
+            <option>Coimbattore jn</option>
+            <option>Kollam jn</option>
+            <option>Chennai egmore</option>
+            <option>Villupuram jn</option>
+            <option>Kachiguda</option>
+            <option>Yaswanthpur jn</option>
+            <option>Mathura jn</option>
+            <option>Asansol jn</option>
+            <option>Dhanbad jn</option>
+            <option>Gaya jn</option>
+            <option>Dd upadyaya jn</option>
+            <option>Kanpur cntl</option>
+            <option>Ratlam jn</option>
+            <option>Kota jn</option>
+            <option>New delhi</option>
+            <option>Ambalacaut jn</option>
+            <option>Amritsar jn</option>
+            <option>Gwalior</option>
+            </datalist>
+        </div>
+
+        <div class="field col-sm-6">
+          <label for="to">To :</label>
+          <input id="to" type="text" name="to" list="tcities" class="text"/>
+          <datalist id="tcities"/>
+          <option>Bangalore</option>
+          <option>Mumbai</option>
+          <option>Delhi</option>
+          <option>Hyderabad</option>
+          <option>Kolkata</option>
+          <option>Chennai</option>
+          <option>Hindupur</option>
+          <option>Kurnool</option>
+          <option>Anantapur</option>
+          <option>Guntakal jn</option>
+          <option>Dharmavaram jn</option>
+          <option>Tirupati</option>
+          <option>Nellore</option>
+          <option>Vijayawada jn</option>
+          <option>Rajahmundry</option>
+          <option>Visakhapatnam</option>
+          <option>Wadi</option>
+          <option>Gangapur rd</option>
+          <option>Solapur</option>
+          <option>Pune</option>
+          <option>Madhapur</option>
+          <option>Maddur</option>
+          <option>Jolarpettai</option>
+          <option>Ambur</option>
+          <option>Trivellore</option>
+            <option>Raichur</option>
+            <option>Secundrabad jn</option>
+            <option>Nagpur</option>
+            <option>Jhansi</option>
+            <option>Mehaboob nagar</option>
+            <option>Khurda rd</option>
+            <option>Cuttack</option>
+            <option>Kharagpur jn</option>
+            <option>Nanded</option>
+            <option>Parbhani jn</option>
+            <option>Auramgabad</option>
+            <option>Rajampeta</option>
+            <option>Renigunta jn</option>
+            <option>Balharshah jn</option>
+            <option>Nagpore jn</option>
+            <option>Bhopal jn</option>
+            <option>Jhansi jn</option>
+            <option>Viziahnagaram jn</option>
+            <option>Kiul jn</option>
+            <option>Tatanagar jn</option>
+            <option>Rourkela</option>
+            <option>Bilaspur jn</option>
+            <option>Bhusaval jn</option>
+            <option>Balasore</option>
+            <option>Bhubaneswar</option>
+            <option>Khurda jn</option>
+            <option>Tundla jn</option>
+            <option>Kanpur jn</option>
+            <option>Patna jn</option>
+            <option>Jasindih jn</option>
+            <option>Barddhaman</option>
+            <option>Mariani jn</option>
+            <option>Lumbding jn</option>
+            <option>Guwahati</option>
+            <option>Trivendram cntl</option>
+            <option>Brahmapur</option>
+            <option>Badnera jn</option>
+            <option>Rourkela</option>
+            <option>Bangarapet</option>
+            <option>Katpadi jn</option>
+            <option>Arakkonam </option>
+            <option>Perambur</option>
+            <option>Shoranur jn</option>
+            <option>Manglore jn</option>
+            <option>Madgaan</option>
+            <option>Panvel</option>
+            <option>Nasik rd</option>
+            <option>Chennai cntl</option>
+            <option>Bangalore caut</option>
+            <option>Bangalore jn</option>
+            <option>Gudur jn</option>
+            <option>Khammam</option>
+            <option>Warangal</option>
+            <option>Ranjiya jn</option>
+            <option>Howrah jn</option>
+            <option>Coimbattore jn</option>
+            <option>Kollam jn</option>
+            <option>Chennai egmore</option>
+            <option>Villupuram jn</option>
+            <option>Kachiguda</option>
+            <option>Yaswanthpur jn</option>
+            <option>Mathura jn</option>
+            <option>Asansol jn</option>
+            <option>Dhanbad jn</option>
+            <option>Gaya jn</option>
+            <option>Dd upadyaya jn</option>
+            <option>Kanpur cntl</option>
+            <option>Ratlam jn</option>
+            <option>Kota jn</option>
+            <option>New delhi</option>
+            <option>Ambalacaut jn</option>
+            <option>Amritsar jn</option>
+            <option>Gwalior</option>
+              </datalist>
+        </div>
+
+
+        <div class="field col-sm-6 col-centered">
+          <label for="datepicker"></label>
+          <input  type="date" id='txtDate' name="date" />
+      
+          
+        </div>
+        <div class="clearfix visible-xs"></div>
+        <div class="field col-sm-6 col-centered ">
+          <div><input type="submit" value="Search For Trains" name="submit"></div>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+<div class="w3-white" id="Holidays">
+    <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+<h2 class="w3-wide w3-center">HOLIDAYS</h2>
+<div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+        <div class="w3-third w3-margin-bottom">
+          <img src="img/Train10.jpg"  style="width:100%" class="w3-hover-opacity">
+          <div class="w3-container w3-light-gray">
+            <p><b>Rail Tour Package</b></p>
+            
+            <p>IRCTC offers Exclusive Rail tour packages with confirmed train tickets, sight-seeing and meals for enchanting Nilgiri Mountains, Darjeeling, Kullu Manali, Kashmir, Gangtok or divine tours of Mata Vaishno Devi, Rameswaram, Madurai, Shirdi, Tirupati etc. Holiday packages/ Land packages to these destinations are also available.</p>
+            
+          </div>
+        </div>
+        <div class="w3-third w3-margin-bottom">
+          <img src="img/Train9.jpg"  style="width:100%" class="w3-hover-opacity">
+          <div class="w3-container w3-light-gray">
+            <p><b>Domestic Air Packages</b></p>
+            
+            <p>Be it the spiritual devotee seeking blessings of Tirupati, Shirdi or Mata Vaishno Devi or the leisure traveller wanting to relish the Blue mountains of North East, Sand-dunes of Rajasthan, Hamlets of Ladakh, Wonders of Himalayas, Serene lakes or Picturesque Islands, IRCTC has it all. Discover India through IRCTC!</p>
+            
+          </div>
+        </div>
+        <div class="w3-third w3-margin-bottom">
+          <img src="img/Train8.jpg"  style="width:100%" class="w3-hover-opacity">
+          <div class="w3-container w3-light-gray">
+            <p><b>Maharaja's Express</b></p>
+            
+            <p>Redefining Royalty, Luxury and Comfort, Maharaja’s express takes you on a sojourn to the era of bygone stately splendour of princely states. Sylvan furnishings, elegant ambience and modern amenities are amalgamated for an “Experience Unsurpassed”. It has been a winner of “World’s Leading Luxury train” by World Travel Awards consecutively for last six years.</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <i class="fa fa-telegram w3-hover-opacity"></i>
+  <p class="w3-medium">Powered by <a href="https://www.irctc.co.in/nget/train-search" target="_blank">irctc</a></p>
+</footer>
+
+<script>
+// Automatic Slideshow - change image every 4 seconds
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 4000);    
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+// When the user clicks anywhere outside of the modal, close it
+var modal = document.getElementById('ticketModal');
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>
+
