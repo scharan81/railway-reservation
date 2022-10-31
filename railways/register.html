@@ -1,0 +1,55 @@
+<html>
+<head>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+<title>Railways Registration</title>
+<link rel="stylesheet" type="text/css" href="css/register.css">
+</head>
+<style>
+    body{
+        background-image: url("img/Boat2.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+</style>
+<body>
+    <h1 style="color:#FFFFFF";>Railways Registration</h1>
+    <div class="bg-img">
+    <form class="container" action="registration_demo.php" method="POST">
+        <h2>Registration Form</h2>
+        <table align="top-left" cellpadding="10">
+<td><b>Username</b></td>
+<td><input type="text" name="name" placeholder="Name" required/>
+</td>
+</tr>
+<tr>
+<td><b>Email id</b></td>
+<td><input type="text" name="mail" placeholder="Mail" required/>
+</td>
+</tr>
+<tr>
+    <td><b>create password</b></td>
+    <td><input type="password" name="pass" placeholder="Password" required/></td>
+    </tr>
+<tr>
+    <td><b>Age</b></td>
+    <td><input type="text" name="age" placeholder="Age" required></td>
+</tr>
+<tr>
+    <td><b>Gender</b></td>
+    <td>
+        <input type="radio" name="gender" value="m" required><b>Male</b>
+        <input type="radio" name="gender" value="f" required><b>Female</b>
+    </td>
+</tr>
+<tr>
+    <td><b>mobile number</b></td>
+    <td><input type="text" name="phone" placeholder="Mobile num" required/>
+    </td>
+    </tr>
+</table><input type="submit" name="submit" value="submit">
+</form>
+</div>
+</body>
+s</html>

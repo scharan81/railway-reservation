@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Admin tasks</title>
+</head>
+<style>
+    body{
+         background-image:url('img/Boat2.png');
+         
+         background-position:absolute;
+         background-repeat:no-repeat;
+         background-size:cover;
+         border:0;
+         margin:0;
+    }
+button
+    {
+        margin:25px 80px;
+        padding:5px;
+    }
+    button:hover
+    {
+        background-color:azure;
+        padding:7px;
+        cursor: pointer;
+    }
+    .first-row{
+display:flex;
+}
+.Click_here_to_add_trains{
+width:300px;
+height:150px;
+margin-right:40px;
+border:2px solid white;
+background-color:#BCD4E6;
+}
+
+.Click_here_to_delete_trains{
+width:300px;
+height:150px;
+
+margin-right:40px;
+border:2px solid white;
+background-color:#BCD4E6;
+}
+.Click_here_to_access_complaints{
+width:300px;
+height:150px;
+margin-right:40px;
+border:2px solid white;
+background-color:#BCD4E6;
+}
+.box{
+    margin:50px 200px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+</style>
+<body>
+    <ul> 
+        <li><a class='active'  href="admin_index.html">Home</a></li>
+        <li><a href="adminlogin.html">Logout</a></li>
+    </ul>
+    
+    <div class="container">
+        <div class="box">
+        
+        <h2 style="text-align:center; font-size:50px;font-style:oblique;">Select your task</h2><br>
+        <div class="first-row">
+            <div class="Click_here_to_add_trains">
+                <h3 style="text-align:center">Click here to Add/Cancle Trains</h3>
+                <a href="admin_add_train.php" style="margin:50 200px;" ><button style="margin:50 200px;">Add/Cancle Train</button></a>
+            </div>
+            <div class="Click_here_to_delete_trains">
+                <h3  style="text-align:center">Cancellation List</h3>
+                <a href="cancelled_trains.php" style="margin:50 200px;"><button style='margin:50 200px;'>Cancellation List</button></a>
+            </div>
+            <div class="Click_here_to_access_complaints">
+                <h3 style="text-align:center">Click here to access complaints</h3>
+                <a href="admin_complaints.php" style="margin:50 200px;" ><button style="margin:50 200px;">Access Complaints</button></a>
+            </div>
+        </div>
+        </div><br><br>
+        
+        <p style="font-size:25px">* As an admin you can add trains when they are available.<br><br>
+           * As an admin you can cancel trains when the trains are not available.<br><br>
+           * You can check the complaints that are given by the passengers and you can solve them.<br><br>
+           * It is your responsibility to check over the comfort and safety of a passenger.<br><br>
+           * Be responsible and protect the passengers and also give correct information.<br><br><br></p>
+    </div>
+</body>
+</html>

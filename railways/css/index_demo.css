@@ -1,0 +1,12 @@
+.login{
+
+    background-color: whitesmoke;
+    top: 170px;
+    right: 1000px;
+    position: absolute;
+    border-radius: 10px;
+    border-color: teal;
+}
+input[type=submit]{
+    cursor: pointer;
+}

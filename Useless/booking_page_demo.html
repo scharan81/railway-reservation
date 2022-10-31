@@ -1,0 +1,58 @@
+<!Doctype Html>
+<Html>   
+<Head>    
+<Title>   
+    Booking Page
+</Title>
+<link rel="stylesheet" type="text/css" href="css/booking_page_demo.css" >
+</Head>
+<style>
+    body{
+        background-image: url("img/Train2.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+</style>
+<body>
+    <div class="topnav">
+        <a href="about.html" name="about">About</a>
+        <a href="login.html" name="logout">LOGOUT</a>
+        <a href='#' name="complaints">Complaints</a>
+        <a href="#" name="pnr">PNR STATUS</a>
+        <a href="#" name="shift">Shift Tickets</a>
+        <a href="#" name="cancel">Cancel Ticket</a>
+        <a href="booking_page_demo.html" name="home">Home</a>
+        
+    </div>
+    <div class="area" >
+        <form action="booking_page_demo.php" method="POST">
+            <table>
+                <tr>
+                    <td class="head">Book Your Ticket Now</td>
+                </tr>
+                <tr>
+                    <td>From</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="from" id="from" placeholder="From" > </td>
+                </tr>
+                <tr>
+                    <td>TO</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="to" id="to" placeholder="To"  ></td>
+                </tr>
+                <tr>
+                    <td>Date Of Journey</td>
+                </tr>
+                <tr>
+                    <td><input type="date" name="date" id="date" ></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" name="submit" value="Book"> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</Html>

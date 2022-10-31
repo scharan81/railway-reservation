@@ -1,0 +1,193 @@
+<html>
+    <head>
+        <title>Passenger Details</title>
+    
+    </head>
+<style>
+    body{
+        background-image: url("img/Sky4.jpg");
+        background-position: absolute;
+        background-repeat: repeat;
+        background-size: cover;
+        margin:0;
+
+    }
+    p{
+        color:burlywood;
+        font-size: 20px;
+        margin-left: 10px;
+    }
+    td{
+        color:burlywood;
+        padding-bottom: 20px;
+        padding-right: 15px;
+        text-align: center;
+    }
+    h2{
+        color: coral;
+        margin-left: 10px;
+    }
+    #total-table
+    {   
+        position: absolute;
+        top: 150px;
+        right: 200px;
+        padding-left: 2px;
+
+    }
+    input[type=submit]:hover
+    {
+        cursor: pointer;
+        background-color: slateblue;
+
+    }
+    input[type=button]:hover
+    {
+        cursor: pointer;
+        background-color:blue;
+        color: white;
+    }
+    ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+#j{
+    margin-left: 10px;
+}
+</style>
+
+<body id="body1">
+<script>
+var count=2;
+window.onload=function(){
+var ticketcost=parseInt(localStorage.getItem('tr'));
+var tax=ticketcost*0.11;
+document.getElementById("ts").innerHTML = ticketcost*(count-1);
+document.getElementById("tx").innerHTML = tax *(count-1);
+document.getElementById("tt").innerHTML = (ticketcost*(count-1) + tax *(count-1) );
+document.getElementById("btnClickedValue").value = count;
+var djy=localStorage.getItem('dj');
+var tdy=localStorage.getItem('tid');
+console.log(djy);
+document.getElementById("djy").value = djy;
+document.getElementById("tdy").value = tdy;
+document.getElementById("totic").value = parseInt(localStorage.getItem('totic'));
+document.getElementById('pfrom').value=localStorage.getItem('tf');
+document.getElementById('pto').value=localStorage.getItem('tt');
+document.getElementById('pemail').value=localStorage.getItem('pemail');
+document.getElementById('ptc').value=localStorage.getItem('tc');
+}
+function p(n)
+{
+var text="";
+n=parseInt(n);
+if (count>6)
+{
+   window.alert('Maximum limit 6');
+}
+else if(n==1 && count<=6)
+{   
+    text +=`<div><p style='size:15px;'>Passenger Details:<input type="button" value="X" onclick="remove(this)" style='margin-left: 30px;padding:1px;'></p><table><tr><td><p id='j'>Passenger Name</p></td><td><input type='text' name='pname${count}'  placeholder='passengername' required></td><td><p id='j'>Age</p></td><td><input type='text' name='age${count}' placeholder='age' pattern='[0-9]+' maxlength='3' required></td><td><p id='j'>Id</p></td><td><input type='text' name='id${count}' placeholder='id' required></td></tr><tr><td><p id='j'>Email</p></td><td><input type='text' name='email${count}' placeholder='email' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'></td><td><p id='j'>Phone</p></td><td><input type='text' name='phn${count}' placeholder='phone' pattern='[0-9]+' minlength='10' size='10' maxlength='10' ></td><td><p style='text-color:coral;'>Gender</p></td><td><input type='radio' name='gen${count}' value='m'>Male<input type='radio' name='gen${count}' value='f'>Female</td></tr></table><br></div>`;
+    document.getElementById("demo").innerHTML += text;
+    count++;
+}
+document.getElementById("btnClickedValue").value = count;
+localStorage.setItem('nv',count);
+var ticketcost=parseInt(localStorage.getItem('tr'));
+var tax=12.35;
+
+document.getElementById("ts").innerHTML = ticketcost*(count-1);
+document.getElementById("tx").innerHTML = tax *(count-1);
+document.getElementById("tt").innerHTML = (ticketcost*(count-1) + tax *(count-1) );
+}
+function remove(pasn)
+{
+    pasn.parentNode.parentNode.remove();
+    count--;
+ document.getElementById("btnClickedValue").value = count;
+localStorage.setItem('nv',count);
+var ticketcost=parseInt(localStorage.getItem('tr'));
+var tax=12.35;
+document.getElementById("ts").innerHTML = ticketcost*(count-1);
+document.getElementById("tx").innerHTML = tax *(count-1);
+document.getElementById("tt").innerHTML = (ticketcost*(count-1) + tax *(count-1) );
+}
+</script>
+
+<ul> 
+    <li><a href="booking1.html">Home</a></li>
+    <li><a href="mybooking.html">My Bookings</a></li>
+    <li><a href="shift_tickets.php">Shift Tickets</a></li>
+    <li><a href="canceltickets.php">Cancel Tickets</a></li>
+    <li><a href="complaints.php">Complaints</a></li>
+    <li><a href="index.html">Logout</a></li>
+    <li><a href="about.html">About</a></li>
+   
+  </ul>
+<form name="myform" action="passenger_details_demo.php" method="POST">
+<h2>Add Passenger Details</h2><br>
+<div>
+<p>Passenger Details:<input type="button" value="X" onclick="remove(this)" style='margin-left: 30px;padding:1px;'></p>
+<table>
+    <tr style="padding-bottom:100px;">
+        <td><p id='j'>Passenger Name</p></td>
+        <td><input type='text' name='pname1' placeholder='passengername' required></td>
+        <td><p id='j'>Age</p></td><td><input type='text' name='age1' placeholder='age' required pattern="[0-9]+" maxlength="3"></td>
+        <td><p id='j'>Id</p></td><td><input type='text' name='id1' placeholder="id" required></td>
+    </tr>
+    <tr style="padding-bottom: 100px;">
+        <td><p id='j'>Email</p></td>
+        <td><input type='text' name='email1' placeholder="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></td>
+    <td><p id='j'>Phone</p></td><td><input type='text' name='phn1' placeholder="phone" pattern="[0-9]+" minlength="10" size='10' maxlength="10"></td><td><p id='j'>Gender</p></td><td><input type='radio' name='gen1' value='m'>Male<input type='radio' name='gen1' value='f'>Female</td></tr></table><br></div>
+<p id="demo" style="position: relative;"></p>
+<input type='button' onclick="p(1)" value='Add Passenger' style='margin-left: 20px;'><br>
+<input type='submit' name='sub' value='Book Tickets' style="position: absolute; top:300px; right: 250px; padding: 3px; background-color:rgba(219, 48, 26, 0.575); color: cornsilk;">
+<input type='hidden' id='btnClickedValue' name='bts' value= "" >
+<input type='hidden' id='djy' name='djy' value="">
+<input type='hidden' id='tdy' name='tdy' value="">
+<input type='hidden' id='totic' name='totic' value="">
+<input type='hidden' id='pfrom' name='pfrom' value="">
+<input type='hidden' id='pto' name='pto' value="">
+<input type='hidden' id='pemail' name='pemail' value="">
+<input type='hidden' id='ptc' name='ptc' value="">
+<h1 style="position: absolute; top: 70px; right: 240px; color: cornsilk;">Total Cost</h1>
+<table id="total-table">
+    <tr style="padding-bottom: 50px;">
+    <td><p style="font-size: 20px;">Amount</p></td>
+    <td><p id="ts">0</p></td>
+    </tr>
+    <tr style="padding-bottom: 50px;">
+        <td><p style="font-size: 20px;">Reservation Charges</p></td>
+        <td><p id="tx">0</p></td>
+    </tr>
+    <tr style="padding-bottom: 50px;">
+        <td><p style="font-size: 20px;">Total</p></td>
+        <td><p id="tt">0</p></td>
+    </tr>
+</table>
+</form>
+</body>
+</html>

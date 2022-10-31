@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Register Form</title>
+</head>
+<style>
+  body{
+    background-image: url('img/Train1.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  div.regis{
+        background-color:whitesmoke;
+        position: absolute;
+        top: 50px;
+        left: 16px;
+        font-size: 25px;
+  }
+</style>
+<body>
+  <div class="regis">
+ <form action="registration_demo.php" method="POST">
+  <table>
+   <tr>
+    <td>Name :</td>
+    <td><input type="text" name="name" required></td>
+   </tr>
+   <tr>
+    <td>Password :</td>
+    <td><input type="password" name="pass" required></td>
+   </tr>
+   <tr>
+    <td>Gender :</td>
+    <td>
+     <input type="radio" name="gender" value="m" required>Male
+     <input type="radio" name="gender" value="f" required>Female
+    </td>
+   </tr>
+   <tr>
+       <td>Age:</td>
+       <td><input type="text" name="age" ></td>
+   </tr>
+   <tr>
+    <td>Email :</td>
+    <td><input type="email" name="mail" required></td>
+   </tr> 
+
+   <tr>
+    <td>Phone no :</td>
+    <td>
+     <input type="phone" name="phone" required>
+    </td>
+   </tr>
+   <tr>
+    <td><input type="submit" value="Submit" name="submit"></td>
+   </tr>
+  </table>
+ </form>
+</div>
+</body>
+</html>
+
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin_Add_Train</title>
+</head>
+<style>
+    body{
+        background-image: url("img/Sky2.jpg");
+        background-position: absolute;
+        background-repeat: repeat;
+        background-size: cover;
+        }
+
+    td{
+        color: burlywood;
+        padding-right: 10px;
+        padding-left: 10px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        text-align: center;
+    }
+    h1{
+        color:darkgrey;
+    }
+    input[type=submit]
+    {
+
+        background-color:black;
+        color: cornsilk;
+        margin-top: 5px;
+        padding: 5px;
+
+    }
+    input[type=text]
+    {
+        padding-right: 10px;
+        padding: 3px;
+    }
+    input[type=date]
+    {   
+        padding-right: 10px;
+        padding:3px;
+    }
+    input[type=submit]:hover
+    {
+        cursor: pointer;
+        background-color:cadetblue;
+    }
+</style>
+<body>
+    <h1>Add Train </h1>
+    <form action="admin_add_train.php" method="POST">
+    <table style='margin: 2px;'>
+        <tr>
+            <td><p style='font-size: 20px;'>Train Number</p></td>
+            <td><input name="tnum" type="text" required></td>
+            <td><p style='font-size: 20px;'>Train Name</p></td>
+            <td><input name="tname" type="text" required></td>
+        </tr>
+        <tr>
+            <td><p style='font-size: 20px;'>From</p></td>
+            <td><input name="from" type="text" required></td>
+            <td><p style='font-size: 20px;'>To</p></td>
+            <td><input name="to" type="text" required></td>
+           
+        </tr>
+            
+        
+        <tr>
+            <td><p style='font-size: 20px;'>Ticket Cost</p></td> 
+            <td><input name="rate" type="text" required></td>
+            <td><p style='font-size: 20px;'>Date of Journey</p></td>
+            <td><input name="doj" type="date" required></td>
+        </tr>
+        <tr>
+           <td><input type="submit" name="submit" value="  ADD Train  "></td>
+        </tr>
+    </table>
+    </form> 
+    <h1>Cancel Train</h1>
+    <form action="admin_add_train.php" method="POST">
+        <table>
+            <tr>
+                <td><p style='font-size: 20px;'>Train Number</p></td>
+                <td><p style='font-size: 20px;'>Train Name</p></td>
+                <td><p style='font-size: 20px;'>Date of Journey</p></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="tnumb"></td>
+                <td><input type="text" name="tnm"></td>
+                <td><input type="date" name="dor" required></td>
+                <td><input type="submit" name="s" value=" Remove Train  "></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
